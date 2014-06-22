@@ -31,6 +31,7 @@ group :doc do
 end
 
 gem 'mongoid', '~> 4.0.0.rc1', github: 'mongoid/mongoid'
+gem "letter_opener", :group => :development
 # gem 'genghisapp'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

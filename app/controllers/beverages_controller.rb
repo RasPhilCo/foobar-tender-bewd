@@ -8,8 +8,14 @@ class BeveragesController < ApplicationController
     @beverage.name = params[:beverage][:name]
     @beverage.price = params[:beverage][:price]
     @beverage.description = params[:beverage][:description]
-    @beverage.save
-    redirect_to @beverage
+    @beverage.email = params[:beverage][:email]
+  
+    if @beverage.save
+      DrinkMailer.welcome(@beverage).deliver
+      redirect_to @beverage
+    else
+      render 'new'
+    end
   end 
 
   def show
